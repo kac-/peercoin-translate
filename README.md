@@ -9,3 +9,5 @@ Internationalizating Peercoin and related projects
   
 Then `Projects`->`Open Project...`->get into `trans` folder and open `i18nedit.properties`
 Add your language, translate and create pull request :)
+
+`I18NEdit` website http://www.cantamen.com/i18nedit.php
