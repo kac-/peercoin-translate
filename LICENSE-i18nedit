@@ -1,0 +1,16 @@
+$Id: LICENSE,v 1.1.1.1 2002/11/27 15:05:59 dirkhillbrecht Exp $
+
+License for I18NEdit
+--------------------
+
+I18NEdit is an open source program released under the FSF GPL license. You
+can find the complete license document either on the Web server of the Free
+Software Foundation or below the doc/ directory as gpl.txt
+
+Releasing I18NEdit under the GPL license means, that you can use and modify
+the source code of I18NEdit in your own GPL or GPL-compatible Open Source
+projects. Simply using I18NEdit for internationalization of a project does
+not imply anything for the license of that particular project. As you may
+use the gcc C compiler to create closed source or proprietary software, you
+can take I18NEdit to work on your closed source/proprietary program to
+localize it.
