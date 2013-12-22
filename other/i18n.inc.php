@@ -141,7 +141,7 @@ function _utf16Converter( $str ) {
 /** Load one .properties file.
     Loads the properties and adds them to the passed array if they are not in there so far. */
 function _loadPropFile($propfilebase,$locale,$retval=array()) {
-	$langfile=$propfilebase."_".$locale.".properties";
+	$langfile = empty($locale) ? $propfilebase.".properties" : $propfilebase."_".$locale.".properties";
 	//echo "loading I18N file $langfile<br>\n";
 	if ($input=@fopen($langfile,"r")) {
 		while (!feof($input)) {
@@ -183,6 +183,7 @@ function _loadAllPropFiles($pathprefixes,$propfilebase,$locales) {
 			$locale=($splitpos===false?"":substr($locale,0,$splitpos));
 		}
 	}
+	$retval=$this->_loadPropFile($DOCUMENT_ROOT.$pathprefix.$propfilebase,"",$retval);
 	}
 	return $retval;
 }
@@ -198,12 +199,12 @@ function _loadHierarchyDescription($mainlocale) {
 			if (sizeof($current)<1 || strlen($current[0])<1 || $current[0][0]==="#")
 				continue;
 			$this->available[]=$current[0];
-			if (!isset($retval) || $current[0]==$mainlocale)
+			if ($current[0]==$mainlocale)
 				$retval=$current;
 		}
 	}
 	if (!isset($retval))
-		$retval=array($mainlocale);
+		$retval=array();
 	return $retval;
 }
 
