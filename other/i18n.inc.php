@@ -178,7 +178,7 @@ function _loadAllPropFiles($pathprefixes,$propfilebase,$locales) {
 	foreach ($pathprefixes as $pathprefix) {
 	foreach ($locales as $locale) {
 		while (strlen($locale)>0) {
-			$retval=$this->_loadPropFile($DOCUMENT_ROOT.$pathprefix.$propfilebase,$locale,&$retval);
+			$retval=$this->_loadPropFile($DOCUMENT_ROOT.$pathprefix.$propfilebase,$locale,$retval);
 			$splitpos=strrpos($locale,"_");
 			$locale=($splitpos===false?"":substr($locale,0,$splitpos));
 		}
@@ -189,8 +189,8 @@ function _loadAllPropFiles($pathprefixes,$propfilebase,$locales) {
 
 /** Loads the hierarchy description file which defines alternative locales beside the standard ones. */
 function _loadHierarchyDescription($mainlocale) {
-	global $DOCUMENT_ROOT;
-	$configfile=$DOCUMENT_ROOT."/i18n.ini";
+	global $INI_PATH;
+	$configfile=$INI_PATH;
 	$this->available=array();
 	if ($f=@fopen($configfile,"r")) {
 		while (!feof($f)) {
